@@ -1,0 +1,37 @@
+h1 {
+    text-align: center;
+    color: white;
+
+
+}
+
+#app
+{
+  border-style: solid;
+  border-color: red;
+  padding: 10px;
+  float: right;
+}
+
+p
+{
+  color:white;
+}
+div p
+{
+  color: white;
+}
+body
+{
+    background-color: black;
+}
+
+#weather
+{
+  padding: 8px;
+  float: left;
+  position: fixed;
+
+}
+
+
