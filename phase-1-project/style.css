@@ -1,15 +1,31 @@
-h1 {
+#highgarden:hover
+{
+  cursor:pointer;
+}
+
+.mapped:hover
+{
+  cursor:pointer;
+}
+
+h1
+{
     text-align: center;
     color: white;
+    font-weight: bolder;
+}
 
-
+h1:hover
+{
+  color: red;
+  cursor:pointer;
 }
 
 #app
 {
   border-style: solid;
   border-color: red;
-  padding: 10px;
+  padding: 44px;
   float: right;
 }
 
@@ -17,10 +33,14 @@ p
 {
   color:white;
 }
+
 div p
 {
   color: white;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+
 }
+
 body
 {
     background-color: black;
@@ -31,7 +51,8 @@ body
   padding: 8px;
   float: left;
   position: fixed;
-
+  border-style: solid;
+  border-color: white;
 }
 
 

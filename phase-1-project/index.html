@@ -7,14 +7,8 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <img id='app' src='images/WesterosPng.png' alt='Westeros Map' width='1400' height='2600' usemap="#myMap">
-
+    <img id='app' src='images/WesterosPng.png' alt='Westeros Map' width='1400' height='2600' usemap="#myMap" onclick='printMousePos()'>
     <h1>Weather in Westeros</h1>
-    <button id='button'>Click Me!</button>
-    <button id='buttonTwo'>Get Weather</button>
-
-
-
     <div id='weather'>
       <p id='location'></p>
       <p id='country'></p>
@@ -25,15 +19,14 @@
     </div>
     <p id='one'></p>
     <p id='two'></p>
-
     <map name="myMap">
-      <area shape="rect" coords="530, 1636, 1025, 2183" alt='Kings Landing' onclick=kingsLandingCall()>
-      <area coords='11, 11, 1407, 303' shape='rect' alt='Nort of the Wall' onclick=northOfTheWallCall()>
-      <area coords='18, 299, 1197, 1156' shape='rect' alt='Winterfell' onclick=winterfellCall()>
-      <area coords='16, 1219, 1196, 1835' shape='rect' alt='Highgarden' onclick=highgardenCall()>
+      <area coords="180, 70, 1577, 379" shape='rect' alt='Nort of the Wall' onclick=northOfTheWallCall() id='northOfTheWall' class='mapped'>
+      <area coords="407, 379, 1553, 1078" shape='rect' alt='Winterfell' onclick=winterfellCall() id='winterfell' class='mapped'>
+      <area coords="300, 1100, 1299, 1700" shape='rect' alt='krOne' onclick=krOneCall() id='krOne' class='mapped'>
+      <area coords="407, 1743, 1338, 1992" shape="rect" alt='Kings Landing' onclick=kingsLandingCall() id='kingsLanding' class='mapped'>
+      <area coords="" shape='rect' alt='Kings Landing Palace Gardens' onclick=royalGardenCall() id='royalGarden' class='mapped'>
+      <area coords="383, 1984, 1293, 2239" shape='rect' alt='Highgarden' onclick=highgardenCall() id='highgarden' class='mapped'>
+      <area coords="327, 2298, 1374, 2528" shape='rect' alt='Dorne' onclick=dorneCall() id='dorne' class='mapped'>
     </map>
-
-
-
   </body>
 </html>

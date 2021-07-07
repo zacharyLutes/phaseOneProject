@@ -1,5 +1,3 @@
-const button = document.getElementById('button')
-const buttonTwo = document.getElementById('buttonTwo')
 const pOne = document.getElementById('one')
 const pTwo = document.getElementById('two')
 const weather = document.getElementById('weather')
@@ -22,31 +20,6 @@ const printMousePos = () => {
     }
 }
 
-button.addEventListener('click', () => {
-    pOne.innerHTML = 'Hello World'
-    pTwo.innerHTML = 'Once you have clicked the map, the above line will show you the exact x and y coords for you to map your objects around.'
-})
-
-
-// HTML Map and HTML area to find out how to break up the image.
-// Figuring out how to target areas with mousever so that return is relatively clean
-// Google mouseover pop-up box on mouse-icon
-// Template for fetch
-
-buttonTwo.addEventListener('click', () => {
-
-    fetch('https://api.weatherapi.com/v1/current.json?key=b4fae7bb9c764b8bb6b184857213006&q=48.8567,2.3508')
-    .then(res => {
-        return res.json()})
-    .then(weather => {
-        loc.innerHTML = 'Film Location:  ' + weather['location']['name']
-        country.innerHTML = 'Country:  ' + weather['location']['country']
-        localTime.innerHTML = 'Local Date/Time:  ' +  weather['location']['localtime']
-        conditions.innerHTML = 'Local Conditions:  ' + weather['current']['condition']['text']
-        tempF.innerHTML = 'Temperature in Farenheit:  ' + weather['current']['temp_f']
-        feelsLike.innerHTML = 'Feels Like (in Farenheit):  ' + weather['current']['feelslike_f']
-})})
-
 const kingsLandingCall = () => {
     fetch('https://api.weatherapi.com/v1/current.json?key=b4fae7bb9c764b8bb6b184857213006&q=42.6507,18.0944')
         .then(res => {
@@ -59,7 +32,7 @@ const kingsLandingCall = () => {
             tempF.innerHTML = 'Temperature in Farenheit:  ' + weather['current']['temp_f']
             feelsLike.innerHTML = 'Feels Like (in Farenheit):  ' + weather['current']['feelslike_f']
     })
-    console.log("Success!")
+
 }
 
 const northOfTheWallCall = () => {
@@ -89,6 +62,35 @@ const winterfellCall = () => {
             feelsLike.innerHTML = 'Feels Like (in Farenheit):  ' + weather['current']['feelslike_f']
     })
 }
+
+const krOneCall = () => {
+    fetch('https://api.weatherapi.com/v1/current.json?key=b4fae7bb9c764b8bb6b184857213006&q=54.6078,-5.9264')
+        .then(res => {
+            return res.json()})
+        .then(weather => {
+            loc.innerHTML = 'Film Location:  ' + weather['location']['name']
+            country.innerHTML = 'Country:  ' + weather['location']['country']
+            localTime.innerHTML = 'Local Date/Time:  ' +  weather['location']['localtime']
+            conditions.innerHTML = 'Local Conditions:  ' + weather['current']['condition']['text']
+            tempF.innerHTML = 'Temperature in Farenheit:  ' + weather['current']['temp_f']
+            feelsLike.innerHTML = 'Feels Like (in Farenheit):  ' + weather['current']['feelslike_f']
+    })
+}
+
+const krTwoCall = () => {
+    fetch('https://api.weatherapi.com/v1/current.json?key=b4fae7bb9c764b8bb6b184857213006&q=54.3730,-5.5790')
+        .then(res => {
+            return res.json()})
+        .then(weather => {
+            loc.innerHTML = 'Film Location:  ' + weather['location']['name']
+            country.innerHTML = 'Country:  ' + weather['location']['country']
+            localTime.innerHTML = 'Local Date/Time:  ' +  weather['location']['localtime']
+            conditions.innerHTML = 'Local Conditions:  ' + weather['current']['condition']['text']
+            tempF.innerHTML = 'Temperature in Farenheit:  ' + weather['current']['temp_f']
+            feelsLike.innerHTML = 'Feels Like (in Farenheit):  ' + weather['current']['feelslike_f']
+    })
+}
+
 const highgardenCall = () => {
     fetch('https://api.weatherapi.com/v1/current.json?key=b4fae7bb9c764b8bb6b184857213006&q=37.8074,-5.0238')
         .then(res => {
@@ -102,3 +104,29 @@ const highgardenCall = () => {
             feelsLike.innerHTML = 'Feels Like (in Farenheit):  ' + weather['current']['feelslike_f']
     })
 }
+
+const royalGardenCall = () => {
+    fetch('https://api.weatherapi.com/v1/current.json?key=b4fae7bb9c764b8bb6b184857213006&q=42.7153,17.9773')
+        .then(res => {
+            return res.json()})
+        .then(weather => {
+            loc.innerHTML = 'Film Location:  ' + weather['location']['name']
+            country.innerHTML = 'Country:  ' + weather['location']['country']
+            localTime.innerHTML = 'Local Date/Time:  ' +  weather['location']['localtime']
+            conditions.innerHTML = 'Local Conditions:  ' + weather['current']['condition']['text']
+            tempF.innerHTML = 'Temperature in Farenheit:  ' + weather['current']['temp_f']
+            feelsLike.innerHTML = 'Feels Like (in Farenheit):  ' + weather['current']['feelslike_f']
+        })}
+
+const dorneCall = () => {
+    fetch('https://api.weatherapi.com/v1/current.json?key=b4fae7bb9c764b8bb6b184857213006&q=37.3831,-5.9902')
+        .then(res => {
+            return res.json()})
+        .then(weather => {
+            loc.innerHTML = 'Film Location:  ' + weather['location']['name']
+            country.innerHTML = 'Country:  ' + weather['location']['country']
+            localTime.innerHTML = 'Local Date/Time:  ' +  weather['location']['localtime']
+            conditions.innerHTML = 'Local Conditions:  ' + weather['current']['condition']['text']
+            tempF.innerHTML = 'Temperature in Farenheit:  ' + weather['current']['temp_f']
+            feelsLike.innerHTML = 'Feels Like (in Farenheit):  ' + weather['current']['feelslike_f']
+})}
