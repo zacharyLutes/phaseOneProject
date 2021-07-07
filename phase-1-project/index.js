@@ -8,6 +8,8 @@ const conditions = document.getElementById('conditions')
 const tempF = document.getElementById('temp_f')
 const feelsLike = document.getElementById('feelsLike_f')
 
+// This is a construction function that isn't neccesary in the actual presentation of the app. It allowed
+// me to see the coordinates of areas of my image, so I could map them.
 const printMousePos = () => {
     let cursorX;
     let cursorY;
@@ -19,33 +21,25 @@ const printMousePos = () => {
 
     }
 }
-
-const kingsLandingCall = () => {
-    fetch('https://api.weatherapi.com/v1/current.json?key=b4fae7bb9c764b8bb6b184857213006&q=42.6507,18.0944')
-        .then(res => {
-            return res.json()})
-        .then(weather => {
-            loc.innerHTML = 'Film Location:  ' + 'Dubrovnik'
-            country.innerHTML = 'Country:  ' + weather['location']['country']
-            localTime.innerHTML = 'Local Date/Time:  ' +  weather['location']['localtime']
-            conditions.innerHTML = 'Local Conditions:  ' + weather['current']['condition']['text']
-            tempF.innerHTML = 'Temperature in Farenheit:  ' + weather['current']['temp_f']
-            feelsLike.innerHTML = 'Feels Like (in Farenheit):  ' + weather['current']['feelslike_f']
-    })
-
+// This function does all the heavy lifting, editing DOM elements and giving them the API's weather
+// attributes. I had this written out about 10 times for each api call, until I just wrote it into
+// a function.
+const updatePage = weather => {
+    loc.innerHTML = 'Film Location:  ' + weather['location']['name']
+    country.innerHTML = 'Country:  ' + weather['location']['country']
+    localTime.innerHTML = 'Local Date/Time:  ' +  weather['location']['localtime']
+    conditions.innerHTML = 'Local Conditions:  ' + weather['current']['condition']['text']
+    tempF.innerHTML = 'Temperature in Farenheit:  ' + weather['current']['temp_f']
+    feelsLike.innerHTML = 'Feels Like (in Farenheit):  ' + weather['current']['feelslike_f']
 }
 
+// And, finally, the api call(s). Lat Long in the URL, nice and easy.
 const northOfTheWallCall = () => {
     fetch('https://api.weatherapi.com/v1/current.json?key=b4fae7bb9c764b8bb6b184857213006&q=65.6039,-18.000')
         .then(res => {
             return res.json()})
         .then(weather => {
-            loc.innerHTML = 'Film Location:  ' + weather['location']['name']
-            country.innerHTML = 'Country:  ' + weather['location']['country']
-            localTime.innerHTML = 'Local Date/Time:  ' +  weather['location']['localtime']
-            conditions.innerHTML = 'Local Conditions:  ' + weather['current']['condition']['text']
-            tempF.innerHTML = 'Temperature in Farenheit:  ' + weather['current']['temp_f']
-            feelsLike.innerHTML = 'Feels Like (in Farenheit):  ' + weather['current']['feelslike_f']
+            updatePage(weather);
     })
 }
 
@@ -54,12 +48,7 @@ const winterfellCall = () => {
         .then(res => {
             return res.json()})
         .then(weather => {
-            loc.innerHTML = 'Film Location:  ' + weather['location']['name']
-            country.innerHTML = 'Country:  ' + weather['location']['country']
-            localTime.innerHTML = 'Local Date/Time:  ' +  weather['location']['localtime']
-            conditions.innerHTML = 'Local Conditions:  ' + weather['current']['condition']['text']
-            tempF.innerHTML = 'Temperature in Farenheit:  ' + weather['current']['temp_f']
-            feelsLike.innerHTML = 'Feels Like (in Farenheit):  ' + weather['current']['feelslike_f']
+            updatePage(weather);
     })
 }
 
@@ -68,12 +57,7 @@ const krOneCall = () => {
         .then(res => {
             return res.json()})
         .then(weather => {
-            loc.innerHTML = 'Film Location:  ' + weather['location']['name']
-            country.innerHTML = 'Country:  ' + weather['location']['country']
-            localTime.innerHTML = 'Local Date/Time:  ' +  weather['location']['localtime']
-            conditions.innerHTML = 'Local Conditions:  ' + weather['current']['condition']['text']
-            tempF.innerHTML = 'Temperature in Farenheit:  ' + weather['current']['temp_f']
-            feelsLike.innerHTML = 'Feels Like (in Farenheit):  ' + weather['current']['feelslike_f']
+            updatePage(weather);
     })
 }
 
@@ -82,13 +66,18 @@ const krTwoCall = () => {
         .then(res => {
             return res.json()})
         .then(weather => {
-            loc.innerHTML = 'Film Location:  ' + weather['location']['name']
-            country.innerHTML = 'Country:  ' + weather['location']['country']
-            localTime.innerHTML = 'Local Date/Time:  ' +  weather['location']['localtime']
-            conditions.innerHTML = 'Local Conditions:  ' + weather['current']['condition']['text']
-            tempF.innerHTML = 'Temperature in Farenheit:  ' + weather['current']['temp_f']
-            feelsLike.innerHTML = 'Feels Like (in Farenheit):  ' + weather['current']['feelslike_f']
+            updatePage(weather);
     })
+}
+
+const kingsLandingCall = () => {
+    fetch('https://api.weatherapi.com/v1/current.json?key=b4fae7bb9c764b8bb6b184857213006&q=42.6507,18.0944')
+        .then(res => {
+            return res.json()})
+        .then(weather => {
+            updatePage(weather);
+    })
+
 }
 
 const highgardenCall = () => {
@@ -96,12 +85,7 @@ const highgardenCall = () => {
         .then(res => {
             return res.json()})
         .then(weather => {
-            loc.innerHTML = 'Film Location:  ' + weather['location']['name']
-            country.innerHTML = 'Country:  ' + weather['location']['country']
-            localTime.innerHTML = 'Local Date/Time:  ' +  weather['location']['localtime']
-            conditions.innerHTML = 'Local Conditions:  ' + weather['current']['condition']['text']
-            tempF.innerHTML = 'Temperature in Farenheit:  ' + weather['current']['temp_f']
-            feelsLike.innerHTML = 'Feels Like (in Farenheit):  ' + weather['current']['feelslike_f']
+            updatePage(weather);
     })
 }
 
@@ -110,12 +94,7 @@ const royalGardenCall = () => {
         .then(res => {
             return res.json()})
         .then(weather => {
-            loc.innerHTML = 'Film Location:  ' + weather['location']['name']
-            country.innerHTML = 'Country:  ' + weather['location']['country']
-            localTime.innerHTML = 'Local Date/Time:  ' +  weather['location']['localtime']
-            conditions.innerHTML = 'Local Conditions:  ' + weather['current']['condition']['text']
-            tempF.innerHTML = 'Temperature in Farenheit:  ' + weather['current']['temp_f']
-            feelsLike.innerHTML = 'Feels Like (in Farenheit):  ' + weather['current']['feelslike_f']
+            updatePage(weather);
         })}
 
 const dorneCall = () => {
@@ -123,10 +102,5 @@ const dorneCall = () => {
         .then(res => {
             return res.json()})
         .then(weather => {
-            loc.innerHTML = 'Film Location:  ' + weather['location']['name']
-            country.innerHTML = 'Country:  ' + weather['location']['country']
-            localTime.innerHTML = 'Local Date/Time:  ' +  weather['location']['localtime']
-            conditions.innerHTML = 'Local Conditions:  ' + weather['current']['condition']['text']
-            tempF.innerHTML = 'Temperature in Farenheit:  ' + weather['current']['temp_f']
-            feelsLike.innerHTML = 'Feels Like (in Farenheit):  ' + weather['current']['feelslike_f']
+            updatePage(weather);
 })}
